@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row row-header-room">
+  <div class="span10 offset1 t-center">
+    <form class="form-search">
+      <input type="text" class="input-large search-query" placeholder="search your contacts">
+      <input type="submit" class="btn" value="Search" />
+    </form>
+  </div>
+</div>
+<div class="row">
+  <hr />
+</div>
+<div class="row">
+  <div class="span3 t-left tabs-left">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#">Favorites</a></li>
+      <li><a href="#">Recently Added</a></li>
+      <li><a href="#">Family</a></li>
+      <li><a href="#">Coworkers</a></li>
+      <li><a href="#">Custom Group</a></li>
+      <li><a href="#">Ungrouped</a></li>
+      <li><a href="#">All</a></li>
+    </ul>
+  </div>
+  <div class="row">
+    <div class="span9">
+      <div class="row">
+        <div class="span9 t-right">
+          <ul class="breadcrumb">
+            <li><strong>View: </strong></li>
+            <li><a href="#">Compact</a> <span class="divider">|</span></li>
+            <li class="active">Detailed <span class="divider">|</span></li>
+            <li><a href="#">Photo</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span8">
+          <!-- Contact container. -->
+          <div class="row">
+            <div class="span5 t-left">
+              <address>
+                <h3>Kathryn Adams</h3><br />
+                <strong>(813)810-2721</strong><br />
+                <a href="mailto:#"><strong>katelizabeth@gmail.com</strong></a>
+              </address>
+            </div>
+            <div class="span3 t-center">
+              <img src="http://placehold.it/125x125" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="span3 offset5 t-center">
+              <button class="btn btn-info" type="button">View Contact Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <hr class="span6 offset1" />
+      </div>
+      <div class="row">
+        <div class="span8">
+        <!-- Contact Container. -->
+          <div class="row">
+            <div class="span5 t-left">
+              <address>
+                <h3>Dawn Roszkowski</h3><br />
+                <strong>(813)240-5845</strong><br />
+                <a href="mailto:#"><strong>droszkowski@gmail.com</strong></a>
+              </address>
+            </div>
+            <div class="span3 t-center">
+              <img src="http://placehold.it/125x125" />
+            </div>
+          </div>
+          <div class="row">
+            <div class="span3 offset5 t-center">
+              <button class="btn btn-info" type="button">View Contact Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <hr class="span6 offset1" />
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
