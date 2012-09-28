@@ -1,93 +1,88 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="row">
-  <div class="span10 offset1 t-center">
-    <h1>Add a New Contact to MyContacts and Stay in Touch, No Matter What Changes.</h1>
+  <div class="span12 t-center">
+    <h4>Add a New Contact to MyCardContacts and Stay in Touch, No Matter What Changes.</h4>
+  </div>
+</div>
+<div class="row">
+  <div class="span10 offset1 well">
+    <div class="row">
+      <div class="span10 t-left">
+        <h2>Find your contacts with MyCard</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span7 offset3 t-center">
+        <form class="form-search">
+          <div class="input-append">
+            <input type="text" class="span5 search-query" placeholder="Full Name, Email Address, or Phone #" />
+            <button type="submit" class="btn btn-info">Search</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 <div class="row row-header-room">
-  <div class="span10 offset1 t-center">
-    <h3>Is your contact on MyContacts? Find out now!</h3>
-  </div>
-</div>
-<div class="row">
-  <div class="span10 offset1 t-center">
-    <form class="form-search">
-      <div class="input-append">
-        <input type="text" class="input-xlarge search-query" placeholder="Search by full name, email, or phone number" />
-        <button type="submit" class="btn btn-info">Search</button>
-      </div>
-    </form>
-  </div>
-</div>
-<div class="row">
-  <div class="span8 offset2 t-center">
-    <h3>Not There? Add a new Paper Contact!</h3>
-  </div>
-</div>
-<div class="row">
-  <div class="span12 well">
+  <div class="span5">
     <div class="row">
-      <div class="span6 t-left">
-        <p class="lead">MyContacts works best with contacts who are also on the MyContacts platform. As a relatively new platform
-        however, we do realize that not all of your contacts will be on here yet, though they will in the future. Until they get
-        started with their own MyContacts, you can keep track of your contact list by adding what we call a 'Paper Contact'. </p>
-        <p class="lead">A MyContact Paper Contact is a simple and modernized method of storing a contact who is not yet on the 
-        MyContacts platform. The name comes from the traditional method of storing contacts, using a paper based system, due to
-        the fact that it lacks some of the more advanced MyContacts features. It's a great way to get started with storing your
-        contacts whom are not yet on the platform, and also an easy way to refer them to come sign up, and be notified once they do.</p>
+      <div class="span5 t-center">
+        <h3>Not There? No Problem!</h3>
       </div>
-      <div class="span6">
-        <div class="row">
-          <div class="span6 t-center">
-            <h3>New Paper Contact</h3>
-          </div>
-        </div>
+    </div>
+    <div class="row">
+      <div class="span5 t-left">
+        <p class="lead">The best way to use MyCard is with contacts who also have MyCards, but we understand not everyone makes our lives easier! 
+        Adding these contacts is still easy(and they still work great!), a few of the updating features are just left out. Try it out!</p>
+        <h2 class="t-center">Try It Out!</h2>
+      </div>
+    </div>
+  </div>
+  <div class="span6 well pull-right">
+    <div class="row">
+      <div class="span6 t-center">
+        <h2>Post A Contact!</h2>
         <form class="form-horizontal">
-        <div class="row">
-          <div class="span6">
-            <div class="control-group">
-              <label class="control-label" for="inputFName">First Name</label>
-              <div class="controls">
-                <input type="text" id="input FName" placeholder="first name" />
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label" for="inputLName">Last Name</label>
-              <div class="controls">
-                <input type="text" id="input LName" placeholder="last name" />
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label" for="inputEmail">Email</label>
-              <div class="controls">
-                <input type="text" id="inputEmail" placeholder="Email Address" />
-              </div>
-            </div>
-            <div class="control-group">
-              <label class="control-label" for="inputTel">Phone</label>
-              <div class="controls">
-                <input type="tel" id="inputTel" />
-              </div>
-            </div>
-            <div class="control-group">
-              <div class="controls">
-                <label class="checkbox">
-                  <input type="checkbox"> Yes, invite this person to MyContacts!
-                </label>
-              </div>
+          <div class="control-group">
+            <label class="control-label" for="inputName">Full Name</label>
+            <div class="controls">
+              <input type="text" id="inputName" class="input-xlarge" placeholder="Abraham Lincoln" />
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="span6 t-center">
-            <button type="submit" class="btn btn-info btn-large">Add My Paper Contact!</button>
+          <div class="control-group">
+            <label class="control-label" for="inputEmail">Email Address</label>
+            <div class="controls">
+              <input type="text" id="inputEmail" class="input-xlarge" placeholder="AbeLinc@honesty.gov" />
+            </div>
           </div>
-        </div>
+          <div class="control-group">
+            <label class="control-label" for="inputPhone">Phone Number</label>
+            <div class="controls">
+              <input type="tel" id="inputPhone" class="input-xlarge" placeholder="(555)555-5555" />
+            </div>
+          </div>
+          <div class="control-group">
+            <label class="control-label" for="inputNotes">Notes</label>
+            <div class="controls">
+              <textarea id="inputNotes" class="input-xlarge" rows="5" placeholder="Add anything you want to remember about this contact here. How you met, birthday, anniversary date, etc..."></textarea>
+            </div>
+          </div>
+          <div class="control-group">
+            <div class="controls">
+              <label class="checkbox">
+                <input type="checkbox" />Invite to MyCard!
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="span4 offset1">
+              <button type="submit" class="btn btn-info btn-block btn-large"><strong>Post This Contact</strong></button>
+            </div>
+          </div>
         </form>
       </div>
     </div>
   </div>
 </div>
 {% endblock %}
-

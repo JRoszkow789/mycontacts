@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <div class="span10 offset1 t-center">
+    <h1>Add a New Contact to MyContacts and Stay in Touch, No Matter What Changes.</h1>
+  </div>
+</div>
+<div class="row row-header-room">
+  <div class="span10 offset1 t-center">
+    <h3>Is your contact on MyContacts? Find out now!</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="span10 offset1 t-center">
+    <form class="form-search">
+      <div class="input-append">
+        <input type="text" class="input-xlarge search-query" placeholder="Search by full name, email, or phone number" />
+        <button type="submit" class="btn btn-info">Search</button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="row">
+  <div class="span8 offset2 t-center">
+    <h3>Not There? Add a new Paper Contact!</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="span4 offset4 t-center">
+    <button type="button" class="btn btn-info">What's a Paper Contact?</button>
+  </div>
+</div>
+<div class="row row-header-room">
+  <div class="span12 well">
+    <div class="row">
+      <div class="span6 t-left">
+        <h3>New PaperContact</h3>
+      </div>
+      <div class="span6">
+        <div class="row">
+          <div class="span6 t-center">
+            <h3>New Paper Contact</h3>
+          </div>
+        </div>
+        <form class="form-horizontal">
+        <div class="row">
+          <div class="span6">
+            <div class="control-group">
+              <label class="control-label" for="inputFName">First Name</label>
+              <div class="controls">
+                <input type="text" id="input FName" placeholder="first name" />
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputLName">Last Name</label>
+              <div class="controls">
+                <input type="text" id="input LName" placeholder="last name" />
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputEmail">Email</label>
+              <div class="controls">
+                <input type="text" id="inputEmail" placeholder="Email Address" />
+              </div>
+            </div>
+            <div class="control-group">
+              <label class="control-label" for="inputTel">Phone</label>
+              <div class="controls">
+                <input type="tel" id="inputTel" />
+              </div>
+            </div>
+            <div class="control-group">
+              <div class="controls">
+                <label class="checkbox">
+                  <input type="checkbox"> Yes, invite this person to MyContacts!
+                </label>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="span6 t-center">
+            <button type="submit" class="btn btn-info btn-large">Add My Paper Contact!</button>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+

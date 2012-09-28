@@ -7,6 +7,22 @@
 </head>
 <body>
   <div class="container">
+    <div class="row">
+      <div class="span3 offset8 t-right">
+      {% if g.user %}
+        signed in as {{ g.user[1] }}
+      </div>
+      <div class="span1">
+        <a href="{{ url_for('logout') }}" class="btn btn-info btn-block">logout</a>
+      </div>
+      {% else %}
+        welcome to MyCard
+      </div>
+      <div class="span1">
+        <a href="{{ url_for('login') }}" class="btn btn-info btn-block">sign up!</a>
+      </div>
+      {% endif %}
+    </div>
     <div class="row page-header">
       <div class="span8 offset2 t-center btn-group">
         <a class="btn active" href="{{ url_for('home') }}"><h3>View Contacts</h3></a> 
@@ -14,7 +30,15 @@
         <a class="btn btn-info" href="{{ url_for('profile') }}"><h3>MyContact</h3></a> 
       </div>
     </div>
-    {% block content %}{% endblock %}
+    {% for msg in get_flashed_messages() %}
+      <div class="row">
+        <div class="span8 offset2 t-center alert">
+          <button type="button" class="close" data-dismiss="alert">x</button>
+          {{ msg }}
+        </div>
+      </div>
+    {% endfor %}
+  {% block content %}{% endblock %}
   </div>
 </body>
 </html>
