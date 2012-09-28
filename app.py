@@ -22,21 +22,31 @@ def connect_db():
     );
 
 
+def query_db(query, args=(), one=True):
+    cursor = connect_db().cursor()
+    cursor.execute(query, args)
+    rv = cursor.fetchone() if one else cursor.fetchall()
+    return rv
+
+
 def get_user_object(user_id):
-    """Returns a tuple representing the user. 
+    """Returns a tuple representing the user.
        The tuple is of length 2 and in the form(users thing_id, user full name).
        Was created for ease of display and passing to templates/cookies.
     """
-    cursor = connect_db().cursor()
-    cursor.execute(
-        'select * from things where thing_id=%s', 
-        (user_id))
-    rv = cursor.fetchone()[0]
-    cursor.execute(
+# This sucks. Whats the point if we are just taking in user_id?
+# Also, if this is the mthod being called by before_request, 
+# then this is the ohly method verifying thyat the given user_id
+# is valid. Seems like something that certainly needs more
+# attention and security.
+    name = query_db(
         'select item from data where thing_id=%s and item_title=%s',
-        (rv, 'name'))
-    name = ' '.join([x.capitalize() for x in cursor.fetchone()[0].split()])
-    return (rv, name)
+        (user_id, 'name'),
+        one=True)
+    if name is not None:
+        name = ' '.join([x.capitalize() for x in name[0].split()])
+    return (user_id, name)
+
 
 @app.before_request
 def before_request():
@@ -81,29 +91,26 @@ def login():
         return redirect(url_for('home'))
     app.logger.debug('%s -- Method: %s' % ('login', request.method))
     if request.method == 'POST':
-        db = connect_db()
-        cursor = db.cursor()
         app.logger.debug('%s -- %s: %s' % ('login', 'inputEmail', request.form['inputEmail'].lower()))
-        cursor.execute(
+        user_id = query_db(
             'select thing_id from data where item_title=%s and item=%s',
-            ('login_email', request.form['inputEmail'].lower())
-        )
-        rv = cursor.fetchone()
-        user_id = None if rv is None else rv[0]
+            ('login_email', request.form['inputEmail'].lower()), one=True)
+
         if user_id is None:
             flash('No account found for that email address. Please check your entry and try again.')
             app.logger.debug('%s -- %s: %s' % ('login', 'not found', request.form['inputEmail']))
             return render_template('login.html')
+        user_id = user_id[0]
         app.logger.debug('%s -- %s: %s' % ('login', 'thing_id(user)', user_id))
-        cursor.execute(
+        pw_hash = query_db(
             'select item from data where thing_id=%s and item_title=%s',
-            (user_id, 'pw_hash'))
-        rv = cursor.fetchone()
-        pw_hash = None if rv is None else rv[0]
+            [user_id, 'pw_hash'], one=True)
+
         if pw_hash is None:
             app.logger.error('%s -- %s: %s' % ('login', 'not found', 'item_title pw_hash'))
             flash("we're sorry, an error has occured. Please try again.")
             return render_template('login.html', emailtext=request.form['inputEmail'])
+        pw_hash = pw_hash[0]
         pw_attempt = request.form['inputPassword']
         app.logger.debug('%s -- %s: %s' % ('login', 'inputPassword', pw_attempt))
         if not check_password_hash(pw_hash, pw_attempt):
