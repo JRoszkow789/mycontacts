@@ -9,11 +9,18 @@
   <div class="span8 offset2 well">
     <div class="row">
       <div class="span5">
+      {% if user_details %}
         <address>
-          <h3>Joe Roszkowski</h3>
-          <strong>(813)765-4975</strong><br />
-          <strong>joeroszkowski@gmail.com</strong>
+          <h3>{{ user_details.name }}</h3>
+          <strong>{{ user_details.primary_phone }}</strong><br />
+          <strong>{{ user_details.login_email }}</strong>
         </address>
+      {% else %}
+        <address>
+          <h3>Oops!</h3>
+          <strong>Sorry, An Error has occured</strong>
+        </address>
+      {% endif %}
       </div>
       <div class="span3">
           <img src="http://placehold.it/125x125" />
@@ -21,7 +28,7 @@
     </div>
     <div class="row row-header-room">
       <div class="span4 offset2">
-        <button class="btn btn-info btn-block btn-large" type="button">edit MyContact card</button>
+        <a href="{{ url_for('update_profile') }}" class="btn btn-info btn-block btn-large">edit MyContact card</a>
       </div>
     </div>
   </div>
@@ -37,34 +44,30 @@
     <div class="row">
       <div class="span3 t-left">
         <dl>
-          <dt>Cell
-          <dd>(813)765-4975
-          <dt>Home
-          <dd>(813)765-4975
-          <dt>Work
-          <dd>(813)653-1554
+          <dt>Primary
+          <dd>{{ user_details.primary_phone }}
         </dl>
       </div>
     </div>
     <div class="row">
       <div class="span2 offset1 t-center">
-        <button class="btn btn-info pull-right" type="button">Update</button>
+        <a href="{{ url_for('update_profile') }}" class="btn btn-info pull-right">Update</a>
       </div>
     </div>
   </div>
   <div class="span3 well">
-    <h4 class="t-center">Video Chat / VOIP</h4>
+    <h4 class="t-center">Add More</h4>
     <div class="row">
       <div class="span3 t-left">
-        <dl>
-          <dt>Skype
-          <dd>Jroszkow7
-        </dl>
+        <ul class="unstyled">
+          <li>Add more ways to contact you!</li>
+          <li>Create any groups, categories, or lists you would like!</li>
+        </ul>  
       </div>
     </div>
     <div class="row">
       <div class="span2 offset1 t-center">
-        <button class="btn btn-info pull-right" type="button">Update</button>
+        <a href="{{ url_for('update_profile') }}" class="btn btn-info pull-right">Add Info!</a>
       </div>
     </div>
   </div>
@@ -74,7 +77,7 @@
     <hr />
   </div>
 </div>
-<div class="row row-header-room">
+<div class="row">
   <div class="span10 offset1">
     <h2>Message <small>instant messaging, email, anyway to shoot you a message</small></h2>
   </div>
@@ -85,50 +88,30 @@
     <div class="row">
       <div class="span3 t-left">
         <dl>
-          <dt>General
-          <dd>Joeroszkowski@gmail.com
-          <dt>Work
-          <dd>Joe@CanopyInnovation.com
+          <dt>Primary
+          <dd>{{ user_details.login_email }}
         </dl>
       </div>
     </div>
     <div class="row">
       <div class="span2 offset1 t-center">
-        <button class="btn btn-info pull-right" type="button">Update</button>
+        <a href="{{ url_for('update_profile') }}" class="btn btn-info pull-right">Update</a>
       </div>
     </div>
   </div>
   <div class="span3 well">
-    <h4 class="t-center">Instant Messaging (IM)</h4>
+    <h4 class="t-center">Add More</h4>
     <div class="row">
       <div class="span3 t-left">
-        <dl>
-          <dt>Skype
-          <dd>Jroszkow7
-          <dt>AIM
-          <dd>Joey2714
-        </dl>
+        <ul class="unstyled">
+          <li>Add more ways to contact you!</li>
+          <li>Create any groups, categories, or lists you would like!</li>
+        </ul>  
       </div>
     </div>
     <div class="row">
       <div class="span2 offset1 t-center">
-        <button class="btn btn-info pull-right" type="button">Update</button>
-      </div>
-    </div>
-  </div>
-  <div class="span3 well">
-    <h4 class="t-center">Other</h4>
-    <div class="row">
-      <div class="span3 t-left">
-        <dl>
-          <dt>iMessage
-          <dd>Jroszkow@mail.usf.edu
-        </dl>
-      </div>
-    </div>
-    <div class="row">
-      <div class="span2 offset1 t-center">
-        <button class="btn btn-info pull-right" type="button">Update</button>
+        <a href="{{ url_for('update_profile') }}" class="btn btn-info pull-right">Add Info!</a>
       </div>
     </div>
   </div>

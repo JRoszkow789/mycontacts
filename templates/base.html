@@ -4,32 +4,28 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <title>{% block title %}MyContacts -- Your world, Your cloud{% endblock %}</title>
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}" />
+  {% block header_addin %}{% endblock %}
 </head>
 <body>
   <div class="container">
     <div class="row">
-      <div class="span3 offset8 t-right">
+      <div class="span6 offset6 t-right">
       {% if g.user %}
-        signed in as {{ g.user[1] }}
-      </div>
-      <div class="span1">
-        <a href="{{ url_for('logout') }}" class="btn btn-info btn-block">logout</a>
-      </div>
+        signed in as {{ g.user.name }} <a href="{{ url_for('logout') }}" class="btn btn-small btn-info">Logout</a>
       {% else %}
-        welcome to MyCard
-      </div>
-      <div class="span1">
-        <a href="{{ url_for('login') }}" class="btn btn-info btn-block">sign up!</a>
-      </div>
+        welcome to MyContacts! Have an Account? <a href="{{ url_for('login') }}" class="btn btn-small btn-info">Sign In!</a>
       {% endif %}
+      </div>
     </div>
+    {% block page_title_area %}
     <div class="row page-header">
       <div class="span8 offset2 t-center btn-group">
-        <a class="btn active" href="{{ url_for('home') }}"><h3>View Contacts</h3></a> 
-        <a class="btn" href="{{ url_for('addnew') }}"><h3>Add Contact</h3></a> 
+        <a class="btn" href="{{ url_for('home') }}"><h3>Home</h3></a> 
+        <a class="btn" href="{{ url_for('addnew') }}"><h3>New Contact</h3></a> 
         <a class="btn btn-info" href="{{ url_for('profile') }}"><h3>MyContact</h3></a> 
       </div>
     </div>
+    {% endblock %}
     {% for msg in get_flashed_messages() %}
       <div class="row">
         <div class="span8 offset2 t-center alert">
@@ -38,7 +34,17 @@
         </div>
       </div>
     {% endfor %}
-  {% block content %}{% endblock %}
+    {% block content %}{% endblock %}
+    <div class="row row-header-room">
+      <div class="span8 offset2 navbar">
+        <a class="brand" href="{{ url_for('home') }}">MyContacts</a>
+        <ul class="nav">
+          <li><a href="{{ url_for('addnew') }}">Add Contact</a></li>
+          <li><a href="{{ url_for('profile') }}">Your MyContact Account</a></li>
+        </ul>        
+      </div>
+    </div>
   </div>
+  {% block footer_addin %}{% endblock %}
 </body>
 </html>

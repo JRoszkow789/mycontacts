@@ -14,26 +14,6 @@
     src: url('../fonts/BalsamiqSansRegular.ttf');
 }
 
-.nosi-main-title {
-    background-color: #003333;
-}
-
-.nosi-bar {
-    color: #00FFFF;
-}
-
-.nosi-well {
-    min-height: 300px;
-}
-
-.nosi-landing-container {
-    background: #5bc0de; 
-}
-
-.nosi-text {
-    width: 100%;
-}
-
 .test-grid {
     background-image: url('../img/grid.png');
 }
@@ -46,6 +26,10 @@
 .col-full {
     height: 1200px;
     background: #C6C6C6;
+}
+
+.add-top-buffer {
+    margin-top: 24px;
 }
 
 .row-header-room {
@@ -62,6 +46,10 @@
 
 .t-left {
     text-align: left;
+}
+
+.t-justify {
+    text-align: justify;
 }
 
 /* Done with my ish, back to bs */

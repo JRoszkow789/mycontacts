@@ -1,68 +1,80 @@
-<!DOCTYPE HTML>
-<html>
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <title>Easily Protect and Manage your Personal Identity and Contact Lists</title>
-  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css') }}" />
-</head>
-<body>
-<div class="container">
-  <div class="row">
-    <div class="span2 offset10">
-      <button class="btn btn-danger btn-block" type="button">Try It Free!</button>
-    </div>
-  </div>
-  <div class="row">
-    <div class="span12 page-header">
-      <div class="row">
-        <div class="span4 offset4 t-center">
-          <h3>MyContacts</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="span12 t-center">
-          <h1>The Future of Global Contact and Identity Management</h1>
-        </div>
+{% extends "base.html" %}
+{% block page_title_area %}{% endblock %}
+{% block content %}
+<div class="row">
+  <div class="span12 page-header">
+    <div class="row">
+      <div class="span4 offset4 t-center">
+        <h3>MyContacts</h3>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="span10 offset1 t-center">
-      <p class="lead">MyContacts is a new approach to social and identity management. It simplifies
-      the bogged-down process of updating the people you want to notify when your information gets
-      updated, and blocking your information from the people you don't.</p>
-    </div>
-  </div>
-  <div class="row row-header-room">
-    <div class="span6">
-      <div class="row">
-        <div class="span6 t-center">
-          <h3>Screenshot</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="span6 t-center">
-          <img src="http://placehold.it/400x400" />
-        </div>
+    <div class="row">
+      <div class="span12 t-center">
+        <h1>Finally, the Perfect Solution to Your Contact and Identity Management Needs</h1>
       </div>
     </div>
-    <div class="span6 t-center testerme well">
-      <h3>Get Started in Seconds!</h3>
-      <div class="row">
-          <div class="span">
-          </div>
+    <div class="row">
+      <div class="span6 offset3 t-center">
+        <a href="{{ url_for('register') }}" class="btn btn-info btn-block btn-large"><strong>Click Here, Get Started In Seconds!</strong></a>
       </div>
-      
-      <form class="form-horizontal">
-        <div class="control-group">
-          <label class="control-label" for="inputName">Name</label>
-          <div class="controls">
-            <input type="text" id="inputName" class="input-xlarge" />
-          </div>
-        </div>
-      </form>
-    </div>
+    </div> 
   </div>
 </div>
-</body>
-</html>
+<div class="row row-header-room">
+  <div class="span6 t-center">
+    <img src="http://placehold.it/400x400" />
+  </div>
+  <div class="span5 offset1 t-center">
+    <h3>Helping Maintain the Relationships that Matter to You.</h3>
+    <p class="lead t-justify">MyContacts is a new approach to social and identity management. It simplifies
+      the bogged-down process of updating the people you want to notify when your information gets
+      updated, and blocking your information from the people you don't.</p>
+  </div>
+</div>
+<div class="row row-header-room">
+  <div class="span6 offset3 t-center">
+    <h1>Get Started Now!</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="span8 offset2 well">
+    <form action="{{ url_for('register') }}" method="POST">
+      <div class="row">
+        <div class="span8 t-left">
+          <legend>Create Your MyContact Card</legend>
+        </div>
+      </div>
+      <div class="row">
+        <div class="span4">
+          <div class="row">
+            <div class="span4 t-left">
+              <label>Your Name</label>
+              <input type="text" class="span3" name="inputName" placeholder="ex: John Doe" />
+              <label>Email Address</label>
+              <input type="text" class="span3" name="inputEmail" placeholder="Johndoe@example.com" />
+              <label>Password</label>
+              <input type="password" name="inputPassword" class="span2" />
+            </div>
+          </div>
+          <div class="row add-top-buffer">
+            <div class="span3 t-center">
+              <button type="submit" class="btn btn-large btn-info"><strong>Get Started!</strong></button>
+            </div>
+          </div>
+        </div>
+        <div class="span4 t-left">
+          <h4>How to Begin</h4>
+          <p>Everything about MyContact is designed from the ground up to be secure and simple to use.
+          Just enter the required information on the left, and you'll already be using the MyContacts platform.
+          </p>
+          <h4 class="add-top-buffer">Learn More About</h4>
+          <ul class="unstyled">
+            <li><a href="#">Your MyContacts Card</a></li>
+            <li><a href="#">Our 100% Security Guarantee</a></li>
+          </ul>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

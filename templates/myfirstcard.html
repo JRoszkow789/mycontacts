@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="row">
+  <div class="span10 offset1 t-center">
+    <h3>Getting Started</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="span10 offset1 t-center">
+    <h2>At MyCard, your MyContactCard is the main method of representing yourself to the people you care about</h2>
+  </div>
+</div>
+<div class="row row-header-room">
+  <div class="span8 offset2 t-left">
+    <h1>Create Your Own <small>Setup your MyContactCard</small></h1>
+  </div>
+</div>
+<div class="row">
+  <div class="span10 offset1 well">
+  <form action="{{ url_for('my_newcard') }}" method="POST" name="myContactCardForm" onsubmit="return validateForm();" >
+    <div class="row">
+      <div class="span10 t-center">
+        <legend>We've tried to help as much as we can, just enter the rest!</legend>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span6 offset1">
+        <div class="row add-top-buffer">
+          <div class="span6 t-left">
+            <input type="text" placeholder="Full Name Here..." name="inputName" value="{{ g.user.name }}" />
+            <span class="help-inline">Full Name</span>
+            <input type="tel" name="inputPhone" placeholder="(555)555-5555" />
+            <span class="help-inline">Phone Number</span>
+            <input type="email" placeholder="You@Example.com" name='inputEmail' value="{{ current_email }}" />
+            <span class="help-inline">Email Address</span>
+          </div>
+        </div>
+      </div>
+      <div class="span3">
+        <div class="row">
+          <div class="span3 t-center">
+            <img src="http://placehold.it/125x125" class="img-polaroid" />
+          </div>
+        </div>
+        <div class="row add-top-buffer">
+          <div class="span3 t-center">
+            <button class="btn-info btn-block btn-large" type="button">Upload Picture</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row add-top-buffer">
+      <div class="span6 offset2 t-center">
+        <button type="submit" class="btn btn-info btn-block btn-large"><h3>Create MyContactCard!</h3></button>
+      </div>
+    </div>
+  </form>
+  </div>
+</div>
+<div class="row row-header-room">
+  <div class="span6">
+    <div class="row">
+      <div class="span6 t-center">
+        <h3>Your MyContactCard</h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span4 offset1 t-justify">
+        <p class="lead">Your MyContactCard is simply a digital "card" with your basic contact info and a profile picture of yourself.
+          It is the general way to share your contact details on MyCard.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span6 t-center">
+        <a href="#">Learn more about MyContactCard?</a>
+      </div>
+    </div>
+  </div>
+  <div class="span6">
+    <div class="row">
+      <div class="span6 t-left">
+        <h4>Example:</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="span5 well">
+        <div class="row">
+          <div class="span3">
+            <h3>Abraham Lincoln</h3>
+            <strong>(555)555-1234</strong><br />
+            <strong>HonestAbe@Gettysburg.Gov</strong>
+          </div>
+          <div class="span2">
+            <img src="http://placehold.it/125x125" /> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block footer_addin %}
+<script>
+function validateForm()
+{
+  var x=document.forms["myContactCardForm"]["inputPhone"].value;
+  if (x==null || x=="")
+  {
+    alert("Must enter a Phone number");
+    return false;
+  }
+}
+</script>
+{% endblock %}
